@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+<head>
+    <title>Email Spam Detection</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Spam Detection</h1>
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label for="email"></label>
+                <textarea name="email" id="email" rows="5" cols="50" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Predict">
+            </div>
+        </form>
+        {% if result %}
+        <div class="result">
+            <h2>Prediction Result: {{ result }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
